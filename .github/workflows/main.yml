@@ -1,0 +1,41 @@
+
+name: Build GD StreamChat Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake ninja-build git
+
+      - name: Setup Geode SDK
+        uses: geode-sdk/build-geode@main
+        with:
+          sdk: 4.0.0
+
+      - name: Build mod
+        run: |
+          cmake -B build -G Ninja
+          cmake --build build
+
+      - name: Upload mod
+        uses: actions/upload-artifact@v4
+        with:
+          name: GD-StreamChat-Android64
+          path: build/**/*.geode
+          if-no-files-found: error
+          
