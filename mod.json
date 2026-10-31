@@ -1,0 +1,56 @@
+{
+  "geode": "4.0.0",
+  "gd": "2.208",
+  "id": "conexion.gdstreamchat",
+  "name": "GD StreamChat",
+  "version": "v1.0.0",
+  "developer": "Conexion",
+  "description": "A fake livestream chat overlay for Geometry Dash levels.",
+  "dependencies": [],
+  "tags": [
+    "offline",
+    "gameplay"
+  ],
+  "settings": {
+    "language": {
+      "type": "string",
+      "name": "Language",
+      "default": "English",
+      "description": "Chat language",
+      "options": [
+        "English",
+        "Русский"
+      ]
+    },
+    "likes": {
+      "type": "bool",
+      "name": "Show likes",
+      "default": true
+    },
+    "opacity": {
+      "type": "int",
+      "name": "Chat opacity",
+      "default": 75,
+      "min": 0,
+      "max": 100
+    },
+    "scale": {
+      "type": "int",
+      "name": "Chat size",
+      "default": 100,
+      "min": 60,
+      "max": 150
+    },
+    "position": {
+      "type": "string",
+      "name": "Chat position",
+      "default": "Bottom right",
+      "options": [
+        "Bottom right",
+        "Bottom left",
+        "Top right",
+        "Top left"
+      ]
+    }
+  }
+}
